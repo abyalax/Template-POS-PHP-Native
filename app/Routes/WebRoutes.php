@@ -16,7 +16,6 @@ use Abya\PointOfSales\Controllers\SettingController;
 use Abya\PointOfSales\Controllers\SupplierController;
 use Abya\PointOfSales\Controllers\TransactionController;
 use Abya\PointOfSales\Controllers\AuthController;
-
 use Abya\PointOfSales\Middlewares\AuthMiddleware;
 use Abya\PointOfSales\Middlewares\RBACMiddleware;
 

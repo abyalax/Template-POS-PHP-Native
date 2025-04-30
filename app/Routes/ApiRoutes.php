@@ -7,7 +7,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use Abya\PointOfSales\Controllers\AuthController;
 use Abya\PointOfSales\Controllers\ConfigController;
 use Abya\PointOfSales\Controllers\UserController;
-use Abya\PointOfSales\Controllers\HomeController;
 use Abya\PointOfSales\Controllers\ProductController;
 use Abya\PointOfSales\Controllers\TransactionController;
 use Abya\PointOfSales\Middlewares\AuthMiddleware;
@@ -27,10 +26,6 @@ class ApiRoutes {
                     [AuthMiddleware::class, 'checkSession'],
                     [UserController::class, 'getAllUsers'],
                 ],
-                'api/home' => [
-                    [AuthMiddleware::class, 'checkSession'],
-                    [HomeController::class, 'dummyPagination'],
-                ],
                 'api/products' => [
                     [AuthMiddleware::class, 'checkSession'],
                     [ProductController::class, 'getProducts'],
@@ -45,10 +40,6 @@ class ApiRoutes {
                 ],
             ],
             'POST' => [
-                'api/home' => [
-                    [AuthMiddleware::class, 'checkSession'],
-                    [HomeController::class, 'insert'],
-                ],
                 'api/login' => [
                     [AuthController::class, 'login'],
                 ],

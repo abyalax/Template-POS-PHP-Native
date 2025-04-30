@@ -34,7 +34,7 @@
     {* For Development *}
     {* <script src="http://localhost:5173/src/auth/index.ts" type="module"></script> *}
     {* For Production *}
-    <script src="../../js/dist/auth.js" type="module"></script>
+    <script src="/resources/js/dist/auth.js" type="module"></script>
 
     {block name="head"}{/block}
 

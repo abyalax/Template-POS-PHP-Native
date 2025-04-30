@@ -1,4 +1,5 @@
 <?php
+
 namespace Abya\PointOfSales\Config;
 
 use Abya\PointOfSales\Config\SmartyConfig;
@@ -30,6 +31,7 @@ class BaseController {
             ];
             LoggerConfig::getInstance()->debug('User Authenticated : ', ['data' => $data]);
             $this->smarty->assign('auth_user', $data);
+            $this->smarty->assign('base_url', Config::getBaseUrl());
         }
     }
 }
