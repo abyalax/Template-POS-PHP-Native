@@ -1,0 +1,28 @@
+{
+    "name": "abya/point-of-sales",
+    "description": "Projects Point Of Sales for task Campus",
+    "autoload": {
+        "psr-4": {
+            "Abya\\PointOfSales\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "abyalax",
+            "email": "abyalaxx@gmail.com"
+        }
+    ],
+    "require": {
+        "smarty/smarty": "^5.4",
+        "vlucas/phpdotenv": "^5.6",
+        "components/jquery": "^3.7",
+        "monolog/monolog": "^3.8",
+        "respect/validation": "^2.4",
+        "components/jqueryui": "^1.12",
+        "laminas/laminas-permissions-rbac": "^3.7"
+    },
+    "scripts": {
+        "migrate": "mysql -u root db_pos < database/migrations/init.sql",
+        "seed": "mysql -u root db_pos < database/seeds/init.sql"
+    }
+}

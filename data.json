@@ -1,0 +1,52 @@
+{
+    "cashier": {
+        "id": 3,
+        "name": "Admin"
+    },
+    "transactionId": "TRX-001",
+    "item": [
+        {
+            "name": "NIVEA MEN Extra Bright 50ml",
+            "qty": 3,
+            "price": "25000.00",
+            "discount": "0.08",
+            "tax_rate": "0.10",
+            "summary": {
+                "name": "NIVEA MEN Extra Bright 50ml",
+                "sub_total": 75000,
+                "total_discount": 6000,
+                "total_price": 69000,
+                "unit_profit": null,
+                "total_profit": null,
+                "total_tax": 7500,
+                "last_price": 76500
+            }
+        },
+        {
+            "name": "Biskuit Roma Kelapa 300g",
+            "qty": 1,
+            "price": "12000.00",
+            "discount": "0.00",
+            "tax_rate": "0.10",
+            "summary": {
+                "name": "Biskuit Roma Kelapa 300g",
+                "sub_total": 12000,
+                "total_discount": 0,
+                "total_price": 12000,
+                "unit_profit": null,
+                "total_profit": null,
+                "total_tax": 1200,
+                "last_price": 13200
+            }
+        }
+    ],
+    "subtotal": 87000,
+    "total_discount": 6000,
+    "total_price": 81000,
+    "total_profit": null,
+    "total_tax": 8700,
+    "pay_change": 0,
+    "pay_received": 0,
+    "payment_method": "cash",
+    "last_price": 89700
+}

@@ -1,0 +1,4 @@
+/vendor/
+.compiled/
+/node_modules/
+/logs/

@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Redirect semua request ke public/index.php
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /public/index.php [L,QSA]
