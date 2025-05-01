@@ -36,7 +36,9 @@ BASE_URL = /template-native
 #### **3. Install Dependencies**
 Jalankan perintah berikut untuk menginstall dependencies yang diperlukan:
 ```bash
-composer require
+composer install
+//or//
+composer update
 ```
 
 #### **4. Import Struktur Database**
