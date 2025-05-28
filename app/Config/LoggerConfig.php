@@ -19,8 +19,8 @@ class LoggerConfig {
 
             $formatter = new LineFormatter('%message% %context%' . PHP_EOL, null, false, true);
 
-            // $handler = new StreamHandler(__DIR__ . '../../../logs/app.log', Level::Debug);
-            $handler = new StreamHandler(__DIR__ . '../../../logs/app.log', Level::Error);
+            // $handler = new StreamHandler(__DIR__ . '../../../logs/debug.log', Level::Debug);
+            $handler = new StreamHandler(__DIR__ . '../../../logs/debug.log', Level::Error);
             $handler->setFormatter($formatter);
 
             self::$instance->pushHandler($handler);

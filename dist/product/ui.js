@@ -1,0 +1,25 @@
+var y=Object.defineProperty;var b=(r,t,e)=>t in r?y(r,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):r[t]=e;var i=(r,t,e)=>b(r,typeof t!="symbol"?t+"":t,e);import{getProducts as f,getCategories as h,getCategoryByID as v,addCategory as _,addProduct as q,updateProduct as S}from"./core.js";let d;class I{constructor(){i(this,"handleSelectCategories",async()=>{const t=document.getElementById("select-categories");if(!t)return;const e=document.createElement("option");(await h()).forEach(l=>{const n=document.createElement("option");n.value=l.id.toString(),n.textContent=l.name,t.appendChild(n)});const a=window.location.pathname.split("/"),s=a[a.length-1];if(!s)return;const c=await v(parseInt(s));c&&(e.value=c.id??"",console.log("ID Category:",c.id),e.textContent=c.name??"-- Pilih Kategori --",t.appendChild(e))});i(this,"handleAddCategory",async t=>{t.preventDefault(),console.log("Add Category...");const o=t.target.querySelector('input[name="name"]'),a=await _(o.value);d.category_id=a.id});i(this,"handleAddProduct",async t=>{t.preventDefault();const e=t.target,o=e.querySelector('input[name="name"]'),a=e.querySelector('input[name="barcode"]'),s=e.querySelector('input[name="price"]'),c=e.querySelector('input[name="cost_price"]'),l=e.querySelector('input[name="stock_qty"]'),n=document.getElementById("select-categories"),u=e.querySelector('input[name="is_active"]'),m=e.querySelector('input[name="tax_rate"]'),p=e.querySelector('input[name="discount"]');console.log("Add Product..."),d={name:o.value,barcode:Number(a.value),price:Number(s.value),stock_qty:Number(l.value),is_active:u.checked,tax_rate:Number(m.value),discount:Number(p.value),cost_price:Number(c.value),category_id:Number(n.value)},console.log(d),await q(d),alert("Product berhasil ditambahkan")});i(this,"handleUpdateProduct",async t=>{t.preventDefault();const e=t.target,o=document.getElementById("product-id"),a=e.querySelector('input[name="name"]'),s=e.querySelector('input[name="barcode"]'),c=e.querySelector('input[name="price"]'),l=e.querySelector('input[name="cost_price"]'),n=e.querySelector('input[name="stock_qty"]'),u=document.getElementById("select-categories"),m=e.querySelector('input[name="is_active"]'),p=e.querySelector('input[name="tax_rate"]'),g=e.querySelector('input[name="discount"]');console.log("Update Product..."),d={id:parseInt(o.textContent||"0"),name:a.value,barcode:Number(s.value),price:Number(c.value),stock_qty:Number(n.value),is_active:m.checked,tax_rate:Number(p.value),discount:Number(g.value),cost_price:Number(l.value),category_id:Number(u.value)},console.log(d),await S(d)===200?(alert("Product berhasil diupdate"),window.location.href="/point-of-sales/products"):alert("Product gagal diupdate")});i(this,"handleEditProduct",t=>{t.preventDefault(),console.log("Update Product...");const o=t.target.closest(".product-item");o||console.error("Item element not found.");const a=parseInt((o==null?void 0:o.dataset.id)||"0");console.log("Finding product with id",a),window.location.href=`products/edit/${a}`});this.bindEvents()}bindEvents(){console.log("Bind Events...");const t=document.getElementById("form-add-product");t&&t.addEventListener("submit",this.handleAddProduct);const e=document.getElementById("form-update-product");e&&e.addEventListener("submit",this.handleUpdateProduct);const o=document.getElementById("form-add-category");o&&o.addEventListener("submit",this.handleAddCategory),this.handleSelectCategories(),this.renderInterface()}async renderInterface(){const t=document.getElementById("table-product"),e=await f();console.log({products:e}),t&&(t.innerHTML=e.map(o=>`
+                    <tr class="odd product-item" data-id="${o.id}">
+                        <td class="d-xl-table-cell">${o.barcode}</td>
+                        <td class="d-xl-table-cell">${o.name}</td>
+
+                        <td class="d-xl-table-cell">Rp ${o.price.toLocaleString("id-ID")}</td>
+
+                        <td class="d-xl-table-cell">${o.tax_rate*100}%</td>
+
+                        <td class="d-xl-table-cell ${o.discount>0?" text-success fw-bold":"text-muted"}">
+                            ${o.discount*100}%
+                        </td>
+                        <td class="d-xl-table-cell ${o.stock_qty<5?" text-danger fw-bold":"text-body"}">
+                            ${o.stock_qty}
+                        </td>
+                        <td class="d-xl-table-cell table-action">
+                            <button class="btn btn-secondary update-product">
+                                <i class="align-middle" data-feather="edit-2"></i>
+                            </button>
+                            <button class="btn btn-secondary delete-product ">
+                                <i class="align-middle" data-feather="trash-2"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join("")),document.querySelectorAll(".update-product").forEach(o=>{o.removeEventListener("click",this.handleEditProduct),o.addEventListener("click",this.handleEditProduct)})}}export{I as default};

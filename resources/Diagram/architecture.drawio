@@ -1,0 +1,115 @@
+<mxfile host="65bd71144e">
+    <diagram id="FUhqPDkTiPkOKkNwsPi7" name="Page-1">
+        <mxGraphModel dx="805" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Routes" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="795" y="680" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="edgeStyle=none;html=1;" parent="1" source="5" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Middleware" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="790" y="738" width="80" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="edgeStyle=none;html=1;" parent="1" source="7" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Controlller" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="783.75" y="800" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="edgeStyle=none;html=1;" parent="1" source="9" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Services" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="782.5" y="860" width="90" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Model" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="788.75" y="910" width="80" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="12" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Entry Point&lt;div&gt;( public/index.php )&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="775" y="600" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;html=1;" parent="1" source="14" target="12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value=".htaccess" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="782.5" y="540" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="16" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="request" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="850" y="440" width="87.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="request" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="945" y="470" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;html=1;exitX=0.586;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="19" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="request" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="450" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.898;entryY=0.042;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="17" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="View" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="708.75" y="1070" width="80" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="24" target="21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="24" target="26">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Response" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="784.37" y="970" width="91.25" height="32.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Data JSON&lt;div&gt;( Javascript Object Notation )&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="930" y="1070" width="165" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="Pemisahan Logika Bisnis&amp;nbsp;&lt;div&gt;( optional tergantung kompleksitas )&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="885" y="852.5" width="210" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="Single entry point untuk semua request" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="885" y="605" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Pembagian routes request untuk&amp;nbsp;&lt;div&gt;diarahkan ke controller masing-masing&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="885" y="675" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="Lapisan keamanan untuk block&amp;nbsp;&lt;div&gt;request yang tidak sah&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="885" y="735.5" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="Handle request dan response,&amp;nbsp;&lt;div&gt;menerima data dan memvalidasinya.&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="885" y="797.5" width="220" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Representasi entitas database,&amp;nbsp;&lt;div&gt;fungsi yang berisi query ke database&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="885" y="902.5" width="220" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="Mengembalikan response ke browser" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="877.5" y="970" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="Response API&amp;nbsp;&lt;div&gt;( Application Programming Interface )&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="910" y="1115" width="220" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="Response Halaman Web&lt;div&gt;Halaman dan data dirender di server&amp;nbsp;&lt;/div&gt;&lt;div&gt;(SSR)&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="1090" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Konfigurasi apache untuk&amp;nbsp;&lt;div&gt;mengarahkan semua request&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="535" width="180" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

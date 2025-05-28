@@ -12,7 +12,7 @@ class SmartyConfig {
         if (self::$smarty === null) {
             try {
                 $smarty = new Smarty();
-                $smarty->setTemplateDir(__DIR__ . '/../../resources');
+                $smarty->setTemplateDir(__DIR__ . '/../Views');
                 $smarty->setCompileDir(__DIR__ . '/../../.compiled');
                 $smarty->setEscapeHtml(true);
                 // $smarty->caching = Smarty::CACHING_LIFETIME_CURRENT;

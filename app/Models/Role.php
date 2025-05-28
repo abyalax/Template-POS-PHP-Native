@@ -18,7 +18,7 @@ class Role {
                 WHERE ur.id_user = ?
             ");
             $stmt->execute([$userId]);
-            return $stmt->fetchAll(PDO::FETCH_COLUMN);
+            return $stmt->fetchAll(PDO::FETCH_COLUMN)[0];
         }  catch (PDOException $e) {
             LoggerConfig::getInstance()->debug('Error Query getUserRoles', compact('e'));
             throw $e;

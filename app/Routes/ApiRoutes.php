@@ -4,9 +4,9 @@ namespace Abya\PointOfSales\Routes;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+use Abya\PointOfSales\Controllers\AnalyticsController;
 use Abya\PointOfSales\Controllers\AuthController;
 use Abya\PointOfSales\Controllers\ConfigController;
-use Abya\PointOfSales\Controllers\UserController;
 use Abya\PointOfSales\Controllers\ProductController;
 use Abya\PointOfSales\Controllers\TransactionController;
 use Abya\PointOfSales\Middlewares\AuthMiddleware;
@@ -24,7 +24,9 @@ class ApiRoutes {
                 ],
                 'api/users' => [
                     [AuthMiddleware::class, 'checkSession'],
-                    [UserController::class, 'getAllUsers'],
+                ],
+                'api/home' => [
+                    [AuthMiddleware::class, 'checkSession'],
                 ],
                 'api/products' => [
                     [AuthMiddleware::class, 'checkSession'],
@@ -38,8 +40,27 @@ class ApiRoutes {
                     [AuthMiddleware::class, 'checkSession'],
                     [ProductController::class, 'getCategoryByID'],
                 ],
+                'api/transactions' => [
+                    [AuthMiddleware::class, 'checkSession'],
+                    [TransactionController::class, 'getTransactions'],
+                ],
+                'api/analytics/report/month' => [
+                    [AuthMiddleware::class, 'checkSession'],
+                    [AnalyticsController::class, 'getReportSalesByMonth'],
+                ],
+                'api/analytics/report/year' => [
+                    [AuthMiddleware::class, 'checkSession'],
+                    [AnalyticsController::class, 'getReportSalesByYear'],
+                ],
+                'api/analytics/report/category' => [
+                    [AuthMiddleware::class, 'checkSession'],
+                    [AnalyticsController::class, 'getReportSalesByCategory'],
+                ],
             ],
             'POST' => [
+                'api/home' => [
+                    [AuthMiddleware::class, 'checkSession'],
+                ],
                 'api/login' => [
                     [AuthController::class, 'login'],
                 ],
@@ -55,7 +76,11 @@ class ApiRoutes {
                     [AuthMiddleware::class, 'checkSession'],
                     [ProductController::class, 'createProduct'],
                 ],
-                'api/transaction/create' => [
+                'api/transactions/(\d+)' => [
+                    [AuthMiddleware::class, 'checkSession'],
+                    [TransactionController::class, 'getTransactionByID']
+                ],
+                'api/transaction/insert' => [
                     [AuthMiddleware::class, 'checkSession'],
                     [TransactionController::class, 'createTransaction'],
                 ],

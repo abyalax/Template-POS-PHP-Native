@@ -1,0 +1,1 @@
+class a{static async insert(s){return await(await fetch("api/transaction/insert",{method:"POST",headers:{"Content-Type":"application/json"},credentials:"include",body:JSON.stringify(s)})).json()}}export{a as default};

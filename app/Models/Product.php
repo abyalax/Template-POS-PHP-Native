@@ -94,7 +94,22 @@ class Product {
 
     public function findByName($name) {
         try {
-            $stmt = $this->db->prepare("SELECT id, barcode, name, price, tax_rate, discount FROM products WHERE name LIKE :name");
+            $stmt = $this->db->prepare("
+                SELECT 
+                    p.id, 
+                    p.barcode, 
+                    p.name, 
+                    p.price, 
+                    p.cost_price, 
+                    p.tax_rate, 
+                    p.discount,
+                    pc.name as category 
+                FROM 
+                    products p 
+                JOIN 
+                    product_categories pc ON p.category_id = pc.id
+                WHERE p.name LIKE :name;
+            ");
             $stmt->execute(['name' => "%$name%"]);
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
@@ -128,7 +143,13 @@ class Product {
 
     public function search($keyword) {
         try {
-            $stmt = $this->db->prepare("SELECT name FROM products WHERE name LIKE :keyword LIMIT 30");
+            $stmt = $this->db->prepare("
+                SELECT name FROM products
+                WHERE name LIKE :keyword
+                    AND stock_qty > 0 
+                    AND is_active = true
+                LIMIT 30;
+            ");
             $stmt->execute(['keyword' => "%$keyword%"]);
             $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
             return $result;

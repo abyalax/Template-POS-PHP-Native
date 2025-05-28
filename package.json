@@ -1,0 +1,33 @@
+{
+  "name": "js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "author": {
+    "name": "abya",
+    "email": "abyalaxx@gmail.com",
+    "url": "https://profile-abya.vercel.app"
+  },
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build --emptyOutDir",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/native-toast": "^2.0.5",
+    "@types/node": "^22.14.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.9",
+    "dotenv": "^16.5.0",
+    "glob": "^11.0.1",
+    "jquery-ui": "^1.14.1",
+    "native-toast": "^2.0.0"
+  }
+}

@@ -5,8 +5,7 @@ namespace Abya\PointOfSales\Routes;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Abya\PointOfSales\Controllers\AnalyticsController;
-use Abya\PointOfSales\Controllers\HomeController;
-use Abya\PointOfSales\Controllers\DashboardController;
+use Abya\PointOfSales\Controllers\SalesController;
 use Abya\PointOfSales\Controllers\InventarisController;
 use Abya\PointOfSales\Controllers\KaryawanController;
 use Abya\PointOfSales\Controllers\MemberController;
@@ -16,6 +15,7 @@ use Abya\PointOfSales\Controllers\SettingController;
 use Abya\PointOfSales\Controllers\SupplierController;
 use Abya\PointOfSales\Controllers\TransactionController;
 use Abya\PointOfSales\Controllers\AuthController;
+
 use Abya\PointOfSales\Middlewares\AuthMiddleware;
 use Abya\PointOfSales\Middlewares\RBACMiddleware;
 
@@ -25,27 +25,17 @@ class WebRoutes {
             'GET' => [
                 // Tanpa middleware
                 '' => [
-                    [DashboardController::class, 'index']
+                    [TransactionController::class, 'home']
                 ],
-                'dashboard' => [
-                    [AuthMiddleware::class, 'checkSession'],
-                    [DashboardController::class, 'dashboard']
-                ],
-                // // Dynamic route /number
-                // 'products/(\d+)' => [
-                //     [AuthMiddleware::class, 'checkSession'],
-                //     [ProductController::class, 'manageProducts'] // example http://localhost/point-of-sales/products/2
-                // ],
-                // // Dynamic route /word
-                // 'products/(\w+)' => [
-                //     [AuthMiddleware::class, 'checkSession'],
-                //     [ProductController::class, 'manageProducts']
-                // ],
                 'login' => [
                     [AuthController::class, 'loginView']
                 ],
                 'register' => [
                     [AuthController::class, 'registerView']
+                ],
+                'dashboard' => [
+                    [AuthMiddleware::class, 'checkSession'],
+                    [AnalyticsController::class, 'dashboard']
                 ],
                 'transaction' => [
                     [AuthMiddleware::class, 'checkSession'],
@@ -53,7 +43,11 @@ class WebRoutes {
                 ],
                 'transactions' => [
                     [AuthMiddleware::class, 'checkSession'],
-                    [TransactionController::class, 'get']
+                    [TransactionController::class, 'getView']
+                ],
+                'transactions/(\d+)' => [
+                    [AuthMiddleware::class, 'checkSession'],
+                    [TransactionController::class, 'getViewByID']
                 ],
                 'inventaris' => [
                     [AuthMiddleware::class, 'checkSession'],
@@ -114,3 +108,15 @@ class WebRoutes {
         ];
     }
 }
+
+
+// // Dynamic route /number
+// 'products/(\d+)' => [
+//     [AuthMiddleware::class, 'checkSession'],
+//     [ProductController::class, 'manageProducts'] // example http://localhost/point-of-sales/products/2
+// ],
+// // Dynamic route /word
+// 'products/(\w+)' => [
+//     [AuthMiddleware::class, 'checkSession'],
+//     [ProductController::class, 'manageProducts']
+// ],

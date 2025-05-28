@@ -14,7 +14,6 @@ class RBACMiddleware {
             Helper::sendResponse(403, StatusResponse::denied);
             exit;
         }
-        
         if (!RBACService::check($_SESSION['roles'], $requiredPermission)) {
             Helper::sendResponse(403, StatusResponse::denied);
             exit;

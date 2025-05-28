@@ -3,6 +3,7 @@
 namespace Abya\PointOfSales\Config;
 
 use ReflectionMethod;
+use PDO;
 
 enum StatusResponse: string {
     case success = 'Success';
@@ -27,47 +28,46 @@ class Helper {
      * @param array|null $data Additional data
      * @param string|null $redirectUrl URL for redirect (only for 302 status)
      */
-    static function sendResponse(
-            int $statusCode,
-            StatusResponse $status,
-            ?array $data = null,
-            ?string $redirectUrl = null
-        ): void {
-            http_response_code($statusCode);
+    public static function sendResponse(
+        int $statusCode,
+        StatusResponse $status,
+        ?array $data = null,
+        ?string $redirectUrl = null
+    ): void {
+        http_response_code($statusCode);
 
-            if ($statusCode === 303 && $redirectUrl) {
-                // For AJAX requests, include redirect in JSON response
-                if (self::isAjaxRequest()) {
-                    header('Content-Type: application/json');
-                    echo json_encode([
-                        'status' => $status,
-                        'message' => $status->value,
-                        'data' => $data,
-                        'redirect' => $redirectUrl
-                    ]);
-                    exit;
-                }
-
-                // For normal requests, do actual redirect
-                header("Location: $redirectUrl");
+        if ($statusCode === 303 && $redirectUrl) {
+            // For AJAX requests, include redirect in JSON response
+            if (self::isAjaxRequest()) {
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'status' => $status,
+                    'message' => $status->value,
+                    'data' => $data,
+                    'redirect' => $redirectUrl
+                ]);
                 exit;
             }
 
-            // Standard JSON response
-            header('Content-Type: application/json');
-            echo json_encode([
-                'status' => $status,
-                'message' => $status->value,
-                'data' => $data
-            ]);
+            // For normal requests, do actual redirect
+            header("Location: $redirectUrl");
             exit;
+        }
+
+        // Standard JSON response
+        header('Content-Type: application/json');
+        echo json_encode([
+            'status' => $status,
+            'message' => $status->value,
+            'data' => $data
+        ]);
+        exit;
     }
 
     private static function isAjaxRequest(): bool {
         return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
             strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
     }
-
     static function handleMatchQuery($routePattern, $handlers, $path, $query) {
         if (preg_match("#^{$routePattern}$#", $path, $matches)) {
 
@@ -111,11 +111,10 @@ class Helper {
         }
         return false;
     }
-
     // Untuk case SHA2 di MySQL:
     // Contoh penggunaan:
     // $isValid = verifySha256Password($_POST['password'], $user['password']);
-    static function verifySha256Password($inputPassword, $storedHash) {
+    public static function verifySha256Password($inputPassword, $storedHash) {
         return hash('sha256', $inputPassword) === $storedHash;
     }
 }

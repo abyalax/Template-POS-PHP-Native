@@ -15,10 +15,8 @@ class RBACService {
     public static function init() {
         if (!self::$rbac) {
             self::$rbac = new Rbac();
-            
             $db = Database::getConnection();
             $roles = $db->query("SELECT name_role FROM roles")->fetchAll(PDO::FETCH_COLUMN);
-            
             foreach ($roles as $role) {
                 self::$rbac->addRole($role);
                 $permissions = Permission::getRolePermissions($role);
@@ -29,7 +27,6 @@ class RBACService {
         }
         return self::$rbac;
     }
-
     public static function check($roles, $permission) {
         $rbac = self::init();
         foreach ($roles as $role) {

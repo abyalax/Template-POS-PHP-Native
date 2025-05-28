@@ -1,0 +1,1 @@
+function e(r){return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR"}).format(r)}function c(r){return Number(r.replace(/[^0-9,-]/g,"").replace(",","."))}export{e as formatPrice,c as parsePrice};
